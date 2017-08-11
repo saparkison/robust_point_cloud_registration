@@ -4,8 +4,7 @@
 #include <pcl/console/parse.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
-#include <pcl_ros/point_cloud.h>
-#include <ros/ros.h>
+#include <pcl/point_cloud.h>
 #include <tools/utils.hpp>
 
 #include "external_pcl_registration/ndt.h"
@@ -42,8 +41,6 @@ void parseNdtParameters(NdtParameters* params) {
 int main(int argc, char** argv) {
   google::InitGoogleLogging(argv[0]);
   google::ParseCommandLineFlags(&argc, &argv, true);
-  ros::init(argc, argv, "NDT");
-  ros::Time::init();
 
   // Load the NDT parameters.
   NdtParameters ndt_params;

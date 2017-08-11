@@ -44,7 +44,7 @@
 #include <pcl/console/parse.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
-#include <pcl_ros/point_cloud.h>
+#include <pcl/point_cloud.h>
 
 DEFINE_string(in_cloud_xyz, "", "");
 DEFINE_string(out_cloud_pcd, "", "");

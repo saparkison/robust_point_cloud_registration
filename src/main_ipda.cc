@@ -4,8 +4,7 @@
 #include <pcl/console/parse.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
-#include <pcl_ros/point_cloud.h>
-#include <ros/ros.h>
+#include <pcl/point_cloud.h>
 #include <tools/utils.hpp>
 
 #include "robust_pcl_registration/pda.h"
@@ -64,8 +63,6 @@ void parseIpdaParameters(IpdaParameters* params) {
 int main(int argc, char** argv) {
   google::InitGoogleLogging(argv[0]);
   google::ParseCommandLineFlags(&argc, &argv, true);
-  ros::init(argc, argv, "IPDA");
-  ros::Time::init();
 
   // Load the IPDA parameters.
   IpdaParameters ipda_params;

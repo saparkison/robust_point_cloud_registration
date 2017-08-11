@@ -52,3 +52,5 @@ mapapi-discovery.txt
 
 # R history files
 .Rhistory
+
+build/
