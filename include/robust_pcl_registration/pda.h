@@ -40,7 +40,7 @@ struct IpdaParameters {
 class Ipda {
  public:
   Ipda(const IpdaParameters& params);
-  void evaluate(
+  Eigen::Affine3d evaluate(
       pcl::PointCloud<PointType>::Ptr source_cloud,
       pcl::PointCloud<PointType>::Ptr target_cloud);
  private:

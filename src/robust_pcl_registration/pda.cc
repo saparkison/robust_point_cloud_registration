@@ -16,7 +16,7 @@
 Ipda::Ipda(const IpdaParameters& params)
   : params_(params) {}
 
-void Ipda::evaluate(
+Eigen::Affine3d Ipda::evaluate(
     pcl::PointCloud<PointType>::Ptr source_cloud,
     pcl::PointCloud<PointType>::Ptr target_cloud) {
   CHECK(source_cloud);
@@ -121,8 +121,9 @@ void Ipda::evaluate(
     LOG(INFO) << "Transformation epsilon: " << transformation_epsilon;
     if (transformation_epsilon < params_.transformation_epsilon) {
       LOG(INFO) << "IPDA converged." << std::endl;
-      return;
+      return final_transformation;
     }
     previous_transformation = current_transformation;
   }
+  return final_transformation;
 }

@@ -9,6 +9,7 @@ find_package(VTK REQUIRED)
 find_package (Ceres REQUIRED)
 find_package (Glog REQUIRED)
 find_package (Boost REQUIRED)
+find_package (Sophus REQUIRED)
 
 # catkin_simple(ALL_DEPS_REQUIRED)
 FILE(GLOB_RECURSE LibFiles "include/*")
@@ -19,6 +20,7 @@ include_directories(${CMAKE_SOURCE_DIR}/include
     ${EIGEN3_INCLUDE_DIR}
     ${CERES_INCLUDES}
     ${Boost_INCLUDES}
+    ${SOPHUS_INCLUDES}
 )
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
@@ -53,6 +55,9 @@ target_link_libraries(ipda ${PROJECT_NAME})
 # Executable to convert pointcloud .xyz to .pcd format.
 add_executable(xyz_to_pcd src/main_xyz_to_pcd.cc)
 target_link_libraries(xyz_to_pcd ${PROJECT_NAME})
+
+add_executable(kitti_eval src/kitti_eval.cc)
+target_link_libraries(kitti_eval ${PROJECT_NAME})
 
 #add_custom_target(headers SOURCES ${LibFiles})
 
